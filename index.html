@@ -18,22 +18,140 @@
 
 
     <div class="fixed top-0 left-0 w-full shadow-md">
-
         <div class="flex items-center justify-between max-w-7xl w-full mx-auto p-5">
             <a href="./index.html">
-                <img src="./Docs/Assets/logo.png" class="h-12" alt="">
+                <img src="./Docs/Assets/logo.png" class="md:h-12 h-8" alt="">
             </a>
-            <ul class="flex items-center justify-center gap-5">
-                <li> Nos banques en ligne</li>
-                <li> Ouvrir un compte</li>
-                <li> Comparer les offres</li>
-                <li> Épargne</li>
-                <li> À propos</li>
+            <ul class="hidden items-center justify-center gap-8 lg:flex ">
+                <li class="flex group cursor-pointer items-center gap-2 relative"> Nos banques en ligne <i
+                        class="fa-solid fa-caret-down group-hover:rotate-180 transition-all duration-300"></i>
+                    <div class="absolute fadeIn group-hover:block  pt-5 top-5 left-0 hidden">
+                        <div
+                            class="text-[#1d1d1d] overflow-hidden border border-[#1d1d1d] w-full rounded-lg bg-white z-40">
+                            <ul>
+                                <li><a href="#"
+                                        class="px-5 py-2 pt-5   hover:text-[#35c087] transition-all duration-500 block">
+                                        BNP
+                                        Paribas</a></li>
+                                <li><a href="#"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        Hello bank</a></li>
+                                <li><a href="#"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        Fortuneo</a></li>
+                                <li><a href="#"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        BounsoBank</a></li>
+                                <li><a href="#"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        Société génénale</a></li>
+                                <li><a href="#"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        N26</a></li>
+                                <li><a href="#"
+                                        class="px-5  hover:text-[#35c087] transition-all duration-500 py-2 pb-5 block">
+                                        Nickel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> Ouvrir un compte</a></li>
+                <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> Comparer les offres</a></li>
+                <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> Épargne</a></li>
+                <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> À propos</a></li>
             </ul>
-
+            <i class="fa-solid fa-bars text-2xl text-[#1d1d1d] cursor-pointer lg:hidden" id="openNav"></i>
         </div>
     </div>
 
+    <div style="width: 0;" id="resNav" class="fixed transition-all duration-500 overflow-hidden h-screen top-0 left-0 bg-white z-50">
+        <div class="">
+            <div class="flex p-5 items-center justify-between">
+                <a href="./index.html">
+                    <img src="./Docs/Assets/logo.png" class="h-9" alt="">
+                </a>
+                <i id="closeNav" class="fa-solid fa-x text-xl"></i>
+            </div>
+
+            <div class="mt-8 text-nowrap px-5 w-full flex flex-col gap-10 justify-between h-[83vh] overflow-auto">
+                <ul class="  flex-col gap-8 flex ">
+                    <li class="flex group cursor-pointer flex-col  relative"> Nos banques en ligne <i
+                            class="fa-solid fa-caret-down group-hover:rotate-180 absolute right-0 transition-all duration-300"></i>
+                        <div class="fadeIn group-hover:block w-full pt-4 hidden">
+                            <div
+                                class="text-[#1d1d1d] overflow-hidden border border-[#1d1d1d] w-full rounded-lg bg-white z-40">
+                                <ul>
+                                    <li><a href="#"
+                                            class="px-5 py-2 pt-5   hover:text-[#35c087] transition-all duration-500 block">
+                                            BNP
+                                            Paribas</a></li>
+                                    <li><a href="#"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            Hello bank</a></li>
+                                    <li><a href="#"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            Fortuneo</a></li>
+                                    <li><a href="#"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            BounsoBank</a></li>
+                                    <li><a href="#"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            Société génénale</a></li>
+                                    <li><a href="#"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            N26</a></li>
+                                    <li><a href="#"
+                                            class="px-5  hover:text-[#35c087] transition-all duration-500 py-2 pb-5 block">
+                                            Nickel</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> Ouvrir un compte</a></li>
+                    <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> Comparer les offres</a>
+                    </li>
+                    <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> Épargne</a></li>
+                    <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> À propos</a></li>
+                </ul>
+
+                <div class=" space-y-2">
+                    <a href="" class="flex items-center gap-2 ">
+                        <i class="fa-solid text-[#35c087] text-lg fa-mobile-screen-button"></i>
+                        <p>123456789</p>
+                    </a>
+                    <a href="" class="flex items-center gap-2 ">
+                        <i class="fa-regular text-[#35c087] text-lg fa-envelope"></i>
+                        <p>company@gmail.com</p>
+                    </a>
+                    <a href="" class="flex items-center gap-2 ">
+                        <i class="fa-solid text-[#35c087] text-lg fa-location-dot"></i>
+                        <p>Navy Socity</p>
+                    </a>
+
+                    <p class="py-2 font-medium">Nos réseaux sociaux :</p>
+
+                    <div class="flex items-center gap-3 pb-2">
+
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-facebook text-[32px]"></i>
+                        </div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-instagram text-3xl"></i>
+                        </div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-linkedin text-3xl"></i>
+                        </div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-youtube text-3xl"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
