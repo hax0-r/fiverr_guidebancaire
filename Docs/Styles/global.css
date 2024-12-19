@@ -83,3 +83,7 @@ img, button, iframe, a {
 .myShadow {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
+.bg{
+  background: var(--dore-rectangle, linear-gradient(90deg, #B07E10 0.01%, #E1BF5C 25.98%, #F5DA7B 41.94%, #FFEEA1 78.46%, #F5DA7B 110.1%, #B07E10 133.96%));
+}
