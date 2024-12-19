@@ -87,3 +87,14 @@ img, button, iframe, a {
 .bg{
   background: var(--dore-rectangle, linear-gradient(90deg, #B07E10 0.01%, #E1BF5C 25.98%, #F5DA7B 41.94%, #FFEEA1 78.46%, #F5DA7B 110.1%, #B07E10 133.96%));
 }
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
