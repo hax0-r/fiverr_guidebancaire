@@ -1,3 +1,11 @@
+const lenis = new Lenis();
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+
 const closeNav = document.getElementById("closeNav")
 const openNav = document.getElementById("openNav")
 const resNav = document.getElementById("resNav")

@@ -154,28 +154,28 @@
         </div>
     </div>
 
-    <div class="md:max-w-[96%] max-w-[93%] w-full mx-auto rounded-3xl bg-[#f0f3ff] p-10 md:mt-32 mt-24">
+    <div class="lg:max-w-[96%] max-w-[93%] w-full mx-auto rounded-3xl bg-[#f0f3ff] md:p-10 p-2 lg:mt-32 mt-24">
 
-        <div class="flex items-center justify-center">
+        <div class="flex items-center justify-center md:p-0 px-5 pt-7 md:pt-0">
             <a href="./index.html" class="">
-                <img src="./Docs/Assets/logo.png" class="md:h-16 h-12" alt="">
+                <img src="./Docs/Assets/logo.png" class="lg:h-16 h-12" alt="">
             </a>
         </div>
-        <h1 class="md:text-6xl text-3xl leading-tight text-center max-w-5xl mx-auto mt-10 text-black font-bold">Les
+        <h1 class="lg:text-6xl text-3xl leading-tight text-center max-w-5xl md:p-0 px-2 mx-auto mt-10 text-black font-bold">Les
             meilleures <span class="text-[#15c189]"> banques en ligne</span> en décembre 2024</h1>
 
-        <div class="flex items-center md:gap-4 gap-2 mt-7 md:flex-row flex-col justify-center">
+        <div class="flex items-center lg:gap-4 gap-2 mt-7 lg:flex-row flex-col justify-center">
             <p class="text-lg">Excellent</p>
-            <img src="./Docs/Assets/stars.svg" class="h-5 md:block hidden" alt="">
+            <img src="./Docs/Assets/stars.svg" class="h-5 lg:block hidden" alt="">
             <p>1 733 avis sur</p>
             <img src="./Docs/Assets/trustPilot.svg" class="h-6" alt="">
         </div>
 
-        <div class="flex items-center justify-center flex-col gap-5 mt-16">
+        <div class="flex items-center justify-center flex-col gap-5 md:mt-16 mt-8">
 
             <div
-                class="grid grid-cols-4 w-full relative items-center overflow-hidden bg-white rounded-2xl border-2 border-[#b07e10]">
-                <div class="bg absolute flex items-center gap-3 p-4 rounded-br-[2rem] top-0 left-0">
+                class="grid lg:grid-cols-4 grid-cols-2 w-full relative items-center overflow-hidden bg-white rounded-2xl border-2 border-[#b07e10]">
+                <div class="bg absolute md:flex hidden items-center gap-3 p-4 rounded-br-[2rem] top-0 left-0">
 
                     <div
                         class="absolute flex items-center justify-center top-4 shadow left-2 bg-white p-1 pt-0.5 rounded-full">
@@ -186,30 +186,33 @@
                     <h3 class="font-semibold pl-14 pt-0.5">Jusqu'a 150€ Offerts !</h3>
                 </div>
 
-                <div class="p-5">
+                <div class="md:px-5 md:py-5  px-2 py-3   flex justify-center flex-col text-center">
                     <img src="./Docs/Assets/bousro.png" class="w-full" alt="">
+                    <h2 class="lg:hidden">La banque <span class="text-[#15c189] font-semibold">Ia moins chére</span>
+                    </h2>
+                    <button class="bg-[#fbcd5c] rounded-full text-xs mt-3 font-medium transition-all duration-500 hover:scale-105 px-3 w-full max-w-[16rem] py-3">Découvrin l'offne</button>
                 </div>
 
-                <div class="col-span-2 border-x  grid grid-cols-2 gap-4">
-                    <div class="p-5">
-                        <div class="flex items-center justify-center gap-1">
-                            <h3 class="text-5xl font-bold">9,7</h3>
+                <div class="lg:col-span-2 border-x  md:py-5 grid lg:grid-cols-2 gap-4">
+                    <div class="p-5 flex items-center justify-center md:flex-col flex-col-reverse md:gap-5 gap-3" >
+                        <div class="flex items-center  justify-center gap-1">
+                            <h3 class="md:text-5xl text-2xl font-bold">9,7</h3>
                             <div class="flex flex-col items-center justify-center text-center">
                                 <div class="flex items-center gap-1">
-                                    <i class="fa-solid fa-star text-yellow-400 text-lg"></i>
-                                    <i class="fa-solid fa-star text-yellow-400 text-lg"></i>
-                                    <i class="fa-solid fa-star text-yellow-400 text-lg"></i>
+                                    <i class="fa-solid fa-star text-yellow-400 md:text-lg text-sm"></i>
+                                    <i class="fa-solid fa-star text-yellow-400 md:text-lg text-sm"></i>
+                                    <i class="fa-solid fa-star text-yellow-400 md:text-lg text-sm"></i>
                                 </div>
-                                <p>Notre scone</p>
+                                <p class="md:text-[16px] text-xs">Notre scone</p>
                             </div>
                         </div>
-                        <div class="flex items-center gap-2 justify-center mt-5">
-                            <img src="./Docs/Assets/card1.png" class="h-12" alt="">
-                            <img src="./Docs/Assets/card2.png" class="h-12" alt="">
+                        <div class="flex items-center gap-2 justify-center ">
+                            <img src="./Docs/Assets/card1.png" class="md:h-12 w-full" alt="">
+                            <img src="./Docs/Assets/card2.png" class="h-12 md:block hidden" alt="">
                         </div>
                     </div>
 
-                    <div class="py-5 pr-5">
+                    <div class="py-5 pr-5 lg:block hidden">
                         <h2 class="text-xl">La banque <span class="text-[#15c189] font-semibold">Ia moins chére</span>
                         </h2>
                         <ul class="space-y-1 mt-4">
@@ -219,6 +222,10 @@
                         </ul>
                     </div>
 
+                </div>
+
+                <div class="lg:flex hidden items-center justify-center p-3">
+                    <button class="bg-[#fbcd5c] rounded-full font-medium transition-all duration-500 hover:scale-105 px-3 w-full max-w-[16rem] py-3">Découvrin l'offne</button>
                 </div>
 
             </div>
