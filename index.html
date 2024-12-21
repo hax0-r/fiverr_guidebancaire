@@ -78,11 +78,17 @@
 
             <div class="mt-8 text-nowrap px-5 w-full flex flex-col gap-10 justify-between h-[80vh] overflow-auto">
                 <ul class="  flex-col gap-8 flex ">
-                    <li class="flex group cursor-pointer flex-col  relative"> Nos banques en ligne <i
-                            class="fa-solid fa-caret-down group-hover:rotate-180 absolute right-0 transition-all duration-300"></i>
-                        <div class="fadeIn group-hover:block w-full pt-4 hidden">
+                    <li class="bg-white " x-data="accordion(1)">
+                        <h2 @click="handleClick()"
+                            class="flex flex-row justify-between items-center font-medium  cursor-pointer">
+                            <span>Nos banques en ligne
+                            </span>
+                            <i :class="handleRotate()" class="fa-solid fa-angle-down transition-all duration-500"></i>
+                        </h2>
+                        <div x-ref="tab" :style="handleToggle()"
+                            class="overflow-hidden max-h-0 duration-500 transition-all">
                             <div
-                                class="text-[#1d1d1d] overflow-hidden border border-[#1d1d1d] w-full rounded-lg bg-white z-40">
+                                class="text-[#1d1d1d] overflow-hidden border border-[#1d1d1d] w-full rounded-lg bg-white mt-5">
                                 <ul>
                                     <li><a href="#"
                                             class="px-5 py-2 pt-5   hover:text-[#35c087] transition-all duration-500 block">
@@ -110,8 +116,10 @@
                             </div>
                         </div>
                     </li>
-                    <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> Ouvrir un compte</a></li>
-                    <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> Comparer les offres</a>
+                    <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> Ouvrir un compte</a>
+                    </li>
+                    <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> Comparer les
+                            offres</a>
                     </li>
                     <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> Épargne</a></li>
                     <li> <a href="#" class="hover:text-[#35c087] transition-all duration-500"> À propos</a></li>
@@ -973,7 +981,8 @@
                 </div>
             </div>
 
-            <div class="flex md:items-center justify-between lg:flex-row flex-col-reverse md:gap-5 gap-8 md:pt-16 pt-14">
+            <div
+                class="flex md:items-center justify-between lg:flex-row flex-col-reverse md:gap-5 gap-8 md:pt-16 pt-14">
 
                 <ul class="flex md:gap-4 gap-2 lg:flex-row flex-col">
                     <li><a href="" class="text-white transition-all duration-500 hover:text-[#69d7b3]"> Mentions
@@ -991,21 +1000,29 @@
 
             <div class="lg:hidden flex mt-6 items-center gap-3">
 
-                <div class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
-                    <i class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-facebook text-[32px]"></i>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-facebook text-[32px]"></i>
                 </div>
-                <div class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
-                    <i class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-instagram text-3xl"></i>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-instagram text-3xl"></i>
                 </div>
-                <div class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
-                    <i class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-linkedin text-3xl"></i>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-linkedin text-3xl"></i>
                 </div>
-                <div class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
-                    <i class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-youtube text-3xl"></i>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-youtube text-3xl"></i>
                 </div>
 
             </div>
-            
+
             <div class="border-b border-white my-8"></div>
 
 
@@ -1014,17 +1031,25 @@
                     Levallois-Perret - Tous droits réservés.</p>
                 <div class="lg:flex hidden  items-center gap-3 pb-2">
 
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
-                        <i class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-facebook text-[32px]"></i>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-facebook text-[32px]"></i>
                     </div>
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
-                        <i class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-instagram text-3xl"></i>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-instagram text-3xl"></i>
                     </div>
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
-                        <i class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-linkedin text-3xl"></i>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-linkedin text-3xl"></i>
                     </div>
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
-                        <i class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-youtube text-3xl"></i>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-youtube text-3xl"></i>
                     </div>
 
                 </div>
@@ -1117,8 +1142,3 @@
 </body>
 
 </html>
-
-
-
-
-
