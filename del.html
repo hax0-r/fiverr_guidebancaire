@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    <link rel="shortcut icon" href="/Docs/Assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./Docs/Styles/global.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <div class="h-[20vh] bg-blue-600 w-full"></div>
+    <div class="flex galler">
+        <div class="left max-w-[50%] bg-black h-[300vh] border-4 border-black text-white">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque incidunt, repellendus praesentium labore
+            temporibus molestiae amet rerum? Quidem, explicabo consectetur veniam aliquid tempora est laborum doloribus
+            quis dolorum deleniti optio quasi, quam voluptas expedita dolore possimus sequi perspiciatis vel
+         corrupti placeat numquam molestiae ipsa.
+        </div>
+        <div class="right max-w-[50%] bg-red-500 h-[50vh] border-4 border-red-500 ">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate suscipit, in laudantium quia incidunt
+            iste consequuntur blanditiis. Minus est ab tempore eaque quia repellat rerum consequuntur quis fugiat quos?
+            Similique?
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./Docs/Javascripts/global.js"></script>
+</body>
+
+<script>
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger);
+
+    // GSAP ScrollTrigger setup for pinning `.right`
+    ScrollTrigger.create({
+        trigger: ".galler", // Element that triggers the effect
+        start: "top top", // Start pinning when `.galler` reaches top of viewport
+        end: "bottom bottom", // End pinning when `.galler` bottom reaches bottom of viewport
+        pin: ".right", // Pin `.right` element
+        pinSpacing: true, // Ensure spacing is handled properly
+        markers: true, // Add markers for debugging
+    });
+
+</script>
+
+</html>

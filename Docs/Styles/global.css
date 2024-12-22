@@ -98,3 +98,7 @@ img, button, iframe, a {
   justify-content: center;
   align-items: center;
 }
+
+.bgBank{
+  background:var(--green-purple-gradient-light, linear-gradient(147deg, #B5EED7 -0.54%, #ECE5FF 101.6%)) !important;
+}
