@@ -102,3 +102,6 @@ img, button, iframe, a {
 .bgBank{
   background:var(--green-purple-gradient-light, linear-gradient(147deg, #B5EED7 -0.54%, #ECE5FF 101.6%)) !important;
 }
+.bgBank2{
+  background:linear-gradient(180deg, #ECE5FF 17.71%, rgba(255, 255, 255, 0.00) 100%);  ;
+}
