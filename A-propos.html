@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUIDEBANCAIRE</title>
+    <link rel="shortcut icon" href="../Docs/Assets/favIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../Docs/Styles/global.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+
+    <div class="fixed z-50 top-0 left-0 w-full shadow-md bg-white">
+        <div class="flex items-center justify-between max-w-7xl w-full mx-auto p-5">
+            <a href="../index.html">
+                <img src="../Docs/Assets/logo.png" class="md:h-12 h-8" alt="">
+            </a>
+            <ul class="hidden items-center justify-center gap-8 lg:flex ">
+                <li class="flex group cursor-pointer items-center gap-2 relative"> Nos banques en ligne <i
+                        class="fa-solid fa-caret-down group-hover:rotate-180 transition-all duration-300"></i>
+                    <div class="absolute fadeIn group-hover:block  pt-5 top-5 left-0 hidden">
+                        <div
+                            class="text-[#1d1d1d] overflow-hidden border border-[#1d1d1d] w-full rounded-lg bg-white z-40">
+                            <ul>
+                                <li><a href="../Banks/BNP-Paribas.html"
+                                        class="px-5 py-2 pt-5   hover:text-[#35c087] transition-all duration-500 block">
+                                        BNP
+                                        Paribas</a></li>
+                                <li><a href="../Banks/Hello-bank.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        Hello bank</a></li>
+                                <li><a href="../Banks/Fontuneo.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        Fortuneo</a></li>
+                                <li><a href="../Banks/BounsoBank.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        BounsoBank</a></li>
+                                <li><a href="../Banks/Société-génénale.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        Société génénale</a></li>
+                                <li><a href="../Banks/N26.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        N26</a></li>
+                                <li><a href="../Banks/Nickel.html"
+                                        class="px-5  hover:text-[#35c087] transition-all duration-500 py-2 pb-5 block">
+                                        Nickel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li> <a href="../Ouvrir-un-compte.html" class="hover:text-[#35c087] transition-all duration-500"> Ouvrir
+                        un compte</a></li>
+                <li> <a href="../Comparer-les-offnes.html" class="hover:text-[#35c087] transition-all duration-500">
+                        Comparer les offres</a></li>
+                <li> <a href="../Épargne.html" class="hover:text-[#35c087] transition-all duration-500"> Épargne</a>
+                </li>
+                <li> <a href="../A-propos.html" class="hover:text-[#35c087] transition-all duration-500"> À propos</a>
+                </li>
+            </ul>
+            <i class="fa-solid fa-bars text-2xl text-[#1d1d1d] cursor-pointer lg:hidden" id="openNav"></i>
+        </div>
+    </div>
+
+    <div style="width: 0;" id="resNav"
+        class="fixed transition-all duration-500 overflow-hidden h-screen top-0 left-0 bg-white z-50">
+        <div class="">
+            <div class="flex p-5 items-center justify-between">
+                <a href="../index.html">
+                    <img src="../Docs/Assets/logo.png" class="h-9" alt="">
+                </a>
+                <i id="closeNav" class="fa-solid fa-x text-xl"></i>
+            </div>
+
+            <div class="mt-8 text-nowrap px-5 w-full flex flex-col gap-10 justify-between h-[80vh] overflow-auto">
+                <ul class="  flex-col gap-8 flex ">
+                    <li class="bg-white " x-data="accordion(1)">
+                        <h2 @click="handleClick()"
+                            class="flex flex-row justify-between items-center font-medium  cursor-pointer">
+                            <span>Nos banques en ligne
+                            </span>
+                            <i :class="handleRotate()" class="fa-solid fa-angle-down transition-all duration-500"></i>
+                        </h2>
+                        <div x-ref="tab" :style="handleToggle()"
+                            class="overflow-hidden max-h-0 duration-500 transition-all">
+                            <div
+                                class="text-[#1d1d1d] overflow-hidden border border-[#1d1d1d] w-full rounded-lg bg-white mt-5">
+                                <ul>
+                                    <li><a href="../Banks/BNP-Paribas.html"
+                                            class="px-5 py-2 pt-5   hover:text-[#35c087] transition-all duration-500 block">
+                                            BNP
+                                            Paribas</a></li>
+                                    <li><a href="../Banks/Hello-bank.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            Hello bank</a></li>
+                                    <li><a href="../Banks/Fontuneo.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            Fortuneo</a></li>
+                                    <li><a href="../Banks/BounsoBank.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            BounsoBank</a></li>
+                                    <li><a href="../Banks/Société-génénale.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            Société génénale</a></li>
+                                    <li><a href="../Banks/N26.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            N26</a></li>
+                                    <li><a href="../Banks/Nickel.html"
+                                            class="px-5  hover:text-[#35c087] transition-all duration-500 py-2 pb-5 block">
+                                            Nickel</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li> <a href="../Ouvrir-un-compte.html" class="hover:text-[#35c087] transition-all duration-500">
+                            Ouvrir un compte</a>
+                    </li>
+                    <li> <a href="../Comparer-les-offnes.html" class="hover:text-[#35c087] transition-all duration-500">
+                            Comparer les
+                            offres</a>
+                    </li>
+                    <li> <a href="../Épargne.html" class="hover:text-[#35c087] transition-all duration-500"> Épargne</a>
+                    </li>
+                    <li> <a href="../A-propos.html" class="hover:text-[#35c087] transition-all duration-500"> À
+                            propos</a></li>
+                </ul>
+
+                <div class=" space-y-2">
+                    <a href="" class="flex items-center gap-2 ">
+                        <i class="fa-solid text-[#35c087] text-lg fa-mobile-screen-button"></i>
+                        <p>123456789</p>
+                    </a>
+                    <a href="" class="flex items-center gap-2 ">
+                        <i class="fa-regular text-[#35c087] text-lg fa-envelope"></i>
+                        <p>company@gmail.com</p>
+                    </a>
+                    <a href="" class="flex items-center gap-2 ">
+                        <i class="fa-solid text-[#35c087] text-lg fa-location-dot"></i>
+                        <p>Navy Socity</p>
+                    </a>
+
+                    <p class="py-2 font-medium">Nos réseaux sociaux :</p>
+
+                    <div class="flex items-center gap-3 pb-2">
+
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-facebook text-[32px]"></i>
+                        </div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-instagram text-3xl"></i>
+                        </div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-linkedin text-3xl"></i>
+                        </div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-youtube text-3xl"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bgBank w-full md:mt-20 mt-16 p-4">
+        <div class="max-w-7xl w-full mx-auto">
+
+            <div class="md:flex hidden text-sm mt-3 items-center gap-2">
+                <a href="../index.html">
+                    <i class="fa-solid fa-house"></i>
+                </a>
+                -
+                <a href="../index.html" class="hover:underline">À propos
+                </a>
+            </div>
+
+            <h1
+                class="font-semibold md:text-5xl !leading-tight max-w-3xl pt-20 md:text-start text-center text-[2.7rem] mb-20">
+                Youdge,
+                le néo-courtier
+                évolutif et moderne
+            </h1>
+
+
+
+        </div>
+    </div>
+
+    <div class="flex max-w-7xl mx-auto p-4 justify-between md:flex-row flex-col mainSection items-start">
+        <div class="md:max-w-[68%] w-full">
+
+            <p class="text-[#35bf86] text-lg pt-8">Vue d’ensemble</p>
+            <p class="md:font-medium pt-5 md:text-xl">Youdge facilite les démarches de ses utilisateurs en les aidant à
+                comparer et à souscrire en temps réel aux meilleures offres.
+                <br><br>
+                Notre technologie nous a permis de développer un comparatif de banques en ligne qui donne accès à une
+                analyse comparative des services, des frais, et des avantages proposés par diverses banques, simplifiant
+                ainsi le processus de prise de décision des utilisateurs.
+            </p>
+            <p class="pt-5">Cette technologie apporte plus de facilité, de rapidité et d’inclusivité à nos utilisateurs
+                en interrogeant instantanément plus de 300 partenaires avec leurs informations personnalisées.
+                <br><br>
+                Grâce à notre expertise financière de néo-courtier et à nos technologies innovantes de comparateur, nous
+                garantissons une expérience utilisateur optimale et simplifiée dans le but de faciliter leur processus
+                de prise de décision avec transparence et accessibilité.
+
+            </p>
+
+            <a href="./index.html">
+                <button
+                    class="bg-[#fbcd5c] rounded-full font-medium transition-all duration-500 hover:scale-105 px-7 mt-8 py-4">Comparer
+                    les banques en ligne
+                </button>
+            </a>
+
+
+
+        </div>
+        <div class="md:max-w-[30%] md:block hidden  rounded-3xl  p-4 w-full">
+            <img src="../Docs/Assets/pexels-linkedin-2182973.jpg"
+                class="w-full min-h-[30rem] myShadow object-cover -translate-y-[12rem] rounded-2xl" alt="">
+        </div>
+    </div>
+
+    <div class="max-w-7xl w-full mx-auto p-5 mt-6">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper items-center">
+                <div class="swiper-slide">
+                    <img src="./Docs/Assets/hello.png" class="grayscale" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./Docs/Assets/bnp.png" class="grayscale" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./Docs/Assets/sg.png" class="grayscale" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./Docs/Assets/fortuneo.png" class="grayscale" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./Docs/Assets/bfor.png" class="grayscale" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./Docs/Assets/n26.png" class="grayscale" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./Docs/Assets/bousro.png" class="grayscale" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./Docs/Assets/axa.png" class="grayscale" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./Docs/Assets/mona.png" class="grayscale" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full bg-[#f6f6f6] p-5 md:py-24 md:mt-16 mt-8 py-12">
+        <div class="max-w-7xl w-full mx-auto ">
+            <div class="flex justify-between md:gap-8 gap-4 flex-col ">
+                <p class="text-[#35bf86] text-lg ">Un résultat instantané </p>
+
+                <h2 class="md:text-5xl !leading-tight text-2xl font-semibold max-w-3xl w-full">Rendre vos démarches plus
+                    faciles, rapides et inclusives.
+
+                </h2>
+                <p class="md:text-lg">Bénéficiez de la technologie d’intermédiation la plus évoluée du marché pour
+                    accéder en temps réel aux offres de nos partenaires. Recevez une réponse personnalisée à votre
+                    profil en quelques clics seulement !
+                </p>
+            </div>
+
+
+            <div class="swiper  md:mt-20 mt-10 mySwiper3">
+                <div class="swiper-wrapper items-center">
+                    <div class="swiper-slide">
+                        <div class="rounded-3xl   flex flex-col justify-center gap-8">
+                            <div class="">
+                                <img src="./Docs/Assets/seatch.svg" class="h-20" alt="">
+                            </div>
+                            <div class="">
+                                <h2 class="text-lg inline font-medium bg-[#ffe3e0] px-5 py-2 rounded-full">Analysez et
+                                    comparez
+
+                                </h2>
+                            </div>
+                            <p>Youdge garantit la protection et la confidentialité des données que vous saisissez lors
+                                de votre demande
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="rounded-3xl   flex flex-col justify-center gap-8">
+                            <div class="">
+                                <img src="./Docs/Assets/tab.svg" class="h-20" alt="">
+                            </div>
+                            <div class="">
+                                <h2 class="text-lg inline font-medium bg-[#ece5ff] px-5 py-2 rounded-full">Choisissez
+
+                                </h2>
+                            </div>
+                            <p>Youdge garantit la protection et la confidentialité des données que vous saisissez lors
+                                de votre demande
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="rounded-3xl   flex flex-col justify-center gap-8">
+                            <div class="">
+                                <img src="./Docs/Assets/pen.svg" class="h-20" alt="">
+                            </div>
+                            <div class="">
+                                <h2 class="text-lg inline font-medium bg-[#fff3c6] px-5 py-2 rounded-full">Souscrivez
+
+
+                                </h2>
+                            </div>
+                            <p>Youdge garantit la protection et la confidentialité des données que vous saisissez lors
+                                de votre demande
+
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="max-w-7xl w-full mx-auto md:mt-16 mt-10 p-4">
+
+        <p class="text-[#35bf86] text-lg ">Un résultat instantané </p>
+
+        <h2 class="md:text-4xl md:pt-4 pt-3  !leading-tight text-2xl font-semibold max-w-3xl w-full">Faciliter la prise de décision des utilisateurs
+        </h2>
+
+        <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 md:mt-10 mt-8">
+            <div class="bg-[#f0f3ff] md:min-h-[20rem] rounded-3xl p-6 flex flex-col justify-center gap-4">
+                <div class="">
+                    <img src="./Docs/Assets/setting.png" class="h-20" alt="">
+                </div>
+                <h2 class="text-xl font-medium">Une expérience optimale
+
+                </h2>
+                <p>Avec des démarches plus fluides, courtes et 100% digitalisées.                </p>
+            </div>
+            <div class="bg-[#fff3c6] md:min-h-[20rem] rounded-3xl p-6 flex flex-col justify-center gap-4">
+                <div class="">
+                    <img src="./Docs/Assets/bar.png" class="h-20" alt="">
+                </div>
+                <h2 class="text-xl font-medium">Une expérience optimale
+
+                </h2>
+                <p>Avec des démarches plus fluides, courtes et 100% digitalisées.                </p>
+            </div>
+            <div class="bg-[#f9f0ff] md:min-h-[20rem] rounded-3xl p-6 flex flex-col justify-center gap-4">
+                <div class="">
+                    <img src="./Docs/Assets/time.png" class="h-20" alt="">
+                </div>
+                <h2 class="text-xl font-medium">Une expérience optimale
+
+                </h2>
+                <p>Avec des démarches plus fluides, courtes et 100% digitalisées.                </p>
+            </div>
+            <div class="bg-[#def9ee] md:min-h-[20rem] rounded-3xl p-6 flex flex-col justify-center gap-4">
+                <div class="">
+                    <img src="./Docs/Assets/card.png" class="h-20" alt="">
+                </div>
+                <h2 class="text-xl font-medium">Une expérience optimale
+
+                </h2>
+                <p>Avec des démarches plus fluides, courtes et 100% digitalisées.                </p>
+            </div>
+            <div class="bg-[#ffebf4] md:min-h-[20rem] rounded-3xl p-6 flex flex-col justify-center gap-4">
+                <div class="">
+                    <img src="./Docs/Assets/peoples.png" class="h-20" alt="">
+                </div>
+                <h2 class="text-xl font-medium">Une expérience optimale
+
+                </h2>
+                <p>Avec des démarches plus fluides, courtes et 100% digitalisées.                </p>
+            </div>
+            <div class="bg-[#ece5ff] md:min-h-[20rem] rounded-3xl p-6 flex flex-col justify-center gap-4">
+                <div class="">
+                    <img src="./Docs/Assets/respect.png" class="h-20" alt="">
+                </div>
+                <h2 class="text-xl font-medium">Une expérience optimale
+
+                </h2>
+                <p>Avec des démarches plus fluides, courtes et 100% digitalisées.                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <footer class="bg-[#292929] w-full md:mt-16 mt-10 p-5 md:pt-16 pt-8">
+
+        <div class="max-w-7xl w-full mx-auto">
+
+            <div class="grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-5 gap-8">
+                <div class="">
+                    <h2 class="text-white text-xl font-medium">Besoin d'aide ?</h2>
+                    <a href="" class="flex items-center gap-2 mt-2 text-white">
+                        <i class="fa-solid fa-phone text-white text-lg"></i>
+                        01 45 61 99 54
+                    </a>
+                    <p class="mt-5 text-white">Du lundi au vendredi
+                        <br> de 10h à 18h
+                        <br> Prix d'un appel local
+                    </p>
+                </div>
+                <div class="">
+                    <h2 class="text-white text-xl font-medium">Les banques en ligne</h2>
+                    <ul class="mt-6 space-y-2">
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/BNP-Paribas.html"> BNP
+                                Paribas</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/Hello-bank.html"> Hello
+                                bank</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/Fontuneo.html"> Fortuneo</a>
+                        </li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/BounsoBank.html">
+                                BounsoBank</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/Société-génénale.html"> Société
+                                générale</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/N26.html"> N26</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/Nickel.html"> Nickel</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="">
+                    <h2 class="text-white text-xl lg:block hidden font-medium">&nbsp; </h2>
+                    <ul class="md:mt-6 mt-2 space-y-2">
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]" href="../index.html">
+                                Nos banques
+                                en
+                                ligne</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Ouvrir-un-compte.html"> Ouvrir un
+                                compte</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Comparer-les-offnes.html"> Comparer les
+                                offres</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Épargne.html"> Épargne</a>
+                        </li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../A-propos.html"> A propos</a>
+                        </li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Questions-fréquentes.html"> Questions
+                                fréquentes</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="flex md:items-center justify-between lg:flex-row flex-col-reverse md:gap-5 gap-8 md:pt-16 pt-14">
+
+                <ul class="flex md:gap-4 gap-2 lg:flex-row flex-col">
+                    <li><a href="../Mentions-légales.html"
+                            class="text-white transition-all duration-500 hover:text-[#69d7b3]"> Mentions
+                            légales</a></li>
+                    <li><a href="../Politique-de-Protection-de-la-Vie-Privée.html"
+                            class="text-white transition-all duration-500 hover:text-[#69d7b3]"> Politique de
+                            protection vie privée</a></li>
+                    <li><a href="../Conditions-générales-d'utilisation.html"
+                            class="text-white transition-all duration-500 hover:text-[#69d7b3]"> Conditions
+                            générales d'utilisation</a></li>
+                </ul>
+                <a href="../index.html">
+                    <img src="../Docs/Assets/logo.png" class="h-10" alt="">
+                </a>
+
+            </div>
+
+            <div class="lg:hidden flex mt-6 items-center gap-3">
+
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-facebook text-[32px]"></i>
+                </div>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-instagram text-3xl"></i>
+                </div>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-linkedin text-3xl"></i>
+                </div>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-youtube text-3xl"></i>
+                </div>
+
+            </div>
+
+            <div class="border-b border-white my-8"></div>
+
+
+            <div class="flex items-center justify-between xl:flex-row flex-col gap-5 ">
+                <p class="text-white">© Copyright 2024 - Youdge SAS, 14 Place Marie-Jeanne Bassot, 92300
+                    Levallois-Perret - Tous droits réservés.</p>
+                <div class="lg:flex hidden  items-center gap-3 pb-2">
+
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-facebook text-[32px]"></i>
+                    </div>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-instagram text-3xl"></i>
+                    </div>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-linkedin text-3xl"></i>
+                    </div>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-youtube text-3xl"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../Docs/Javascripts/global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        ScrollTrigger.create({
+            trigger: ".mainSection",
+            start: "top top",
+            end: "bottom bottom",
+            pin: ".right",
+        });
+
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 9,
+            spaceBetween: 5,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                // Mobile: Show 3 images
+                320: {
+                    slidesPerView: 3,
+                    spaceBetween: 5,
+                },
+                // Tablet: Adjust the spacing
+                768: {
+                    slidesPerView: 5,
+                    spaceBetween: 10,
+                },
+                // Desktop: Default to 9 images
+                1024: {
+                    slidesPerView: 9,
+                    spaceBetween: 10,
+                },
+            },
+        });
+
+
+        var swiper = new Swiper(".mySwiper3", {
+            slidesPerView: 3,
+            spaceBetween: 80,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 80,
+                },
+            },
+        });
+
+
+
+    </script>
+</body>
+
+</html>

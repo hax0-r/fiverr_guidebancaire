@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUIDEBANCAIRE</title>
+    <link rel="shortcut icon" href="./Docs/Assets/favIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./Docs/Styles/global.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+
+    <div class="fixed z-50 top-0 left-0 w-full shadow-md bg-white">
+        <div class="flex items-center justify-between max-w-7xl w-full mx-auto p-5">
+            <a href="./index.html">
+                <img src="./Docs/Assets/logo.png" class="md:h-12 h-8" alt="">
+            </a>
+            <ul class="hidden items-center justify-center gap-8 lg:flex ">
+                <li class="flex group cursor-pointer items-center gap-2 relative"> Nos banques en ligne <i
+                        class="fa-solid fa-caret-down group-hover:rotate-180 transition-all duration-300"></i>
+                    <div class="absolute fadeIn group-hover:block  pt-5 top-5 left-0 hidden">
+                        <div
+                            class="text-[#1d1d1d] overflow-hidden border border-[#1d1d1d] w-full rounded-lg bg-white z-40">
+                            <ul>
+                                <li><a href="./Banks/BNP-Paribas.html"
+                                        class="px-5 py-2 pt-5   hover:text-[#35c087] transition-all duration-500 block">
+                                        BNP
+                                        Paribas</a></li>
+                                <li><a href="./Banks/Hello-bank.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        Nickel</a></li>
+                                <li><a href="./Banks/Nickel.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        Fortuneo</a></li>
+                                <li><a href="./Banks/BounsoBank.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        BounsoBank</a></li>
+                                <li><a href="./Banks/Société-génénale.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        Société génénale</a></li>
+                                <li><a href="./Banks/N26.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        N26</a></li>
+                                <li><a href="./Banks/Nickel.html"
+                                        class="px-5  hover:text-[#35c087] transition-all duration-500 py-2 pb-5 block">
+                                        Nickel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li> <a href="./Ouvrir-un-compte.html" class="hover:text-[#35c087] transition-all duration-500"> Ouvrir
+                        un compte</a></li>
+                <li> <a href="./Comparer-les-offnes.html" class="hover:text-[#35c087] transition-all duration-500">
+                        Comparer les offres</a></li>
+                <li> <a href="./Épargne.html" class="hover:text-[#35c087] transition-all duration-500"> Épargne</a>
+                </li>
+                <li> <a href="./A-propos.html" class="hover:text-[#35c087] transition-all duration-500"> À propos</a>
+                </li>
+            </ul>
+            <i class="fa-solid fa-bars text-2xl text-[#1d1d1d] cursor-pointer lg:hidden" id="openNav"></i>
+        </div>
+    </div>
+
+    <div style="width: 0;" id="resNav"
+        class="fixed transition-all duration-500 overflow-hidden h-screen top-0 left-0 bg-white z-50">
+        <div class="">
+            <div class="flex p-5 items-center justify-between">
+                <a href="./index.html">
+                    <img src="./Docs/Assets/logo.png" class="h-9" alt="">
+                </a>
+                <i id="closeNav" class="fa-solid fa-x text-xl"></i>
+            </div>
+
+            <div class="mt-8 text-nowrap px-5 w-full flex flex-col gap-10 justify-between h-[80vh] overflow-auto">
+                <ul class="  flex-col gap-8 flex ">
+                    <li class="bg-white " x-data="accordion(1)">
+                        <h2 @click="handleClick()"
+                            class="flex flex-row justify-between items-center font-medium  cursor-pointer">
+                            <span>Nos banques en ligne
+                            </span>
+                            <i :class="handleRotate()" class="fa-solid fa-angle-down transition-all duration-500"></i>
+                        </h2>
+                        <div x-ref="tab" :style="handleToggle()"
+                            class="overflow-hidden max-h-0 duration-500 transition-all">
+                            <div
+                                class="text-[#1d1d1d] overflow-hidden border border-[#1d1d1d] w-full rounded-lg bg-white mt-5">
+                                <ul>
+                                    <li><a href="./Banks/BNP-Paribas.html"
+                                            class="px-5 py-2 pt-5   hover:text-[#35c087] transition-all duration-500 block">
+                                            BNP
+                                            Paribas</a></li>
+                                    <li><a href="./Banks/Hello-bank.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            Nickel</a></li>
+                                    <li><a href="./Banks/Nickel.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            Fortuneo</a></li>
+                                    <li><a href="./Banks/BounsoBank.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            BounsoBank</a></li>
+                                    <li><a href="./Banks/Société-génénale.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            Société génénale</a></li>
+                                    <li><a href="./Banks/N26.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            N26</a></li>
+                                    <li><a href="./Banks/Nickel.html"
+                                            class="px-5  hover:text-[#35c087] transition-all duration-500 py-2 pb-5 block">
+                                            Nickel</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li> <a href="./Ouvrir-un-compte.html" class="hover:text-[#35c087] transition-all duration-500">
+                            Ouvrir un compte</a>
+                    </li>
+                    <li> <a href="./Comparer-les-offnes.html" class="hover:text-[#35c087] transition-all duration-500">
+                            Comparer les
+                            offres</a>
+                    </li>
+                    <li> <a href="./Épargne.html" class="hover:text-[#35c087] transition-all duration-500"> Épargne</a>
+                    </li>
+                    <li> <a href="./A-propos.html" class="hover:text-[#35c087] transition-all duration-500"> À
+                            propos</a></li>
+                </ul>
+
+                <div class=" space-y-2">
+                    <a href="" class="flex items-center gap-2 ">
+                        <i class="fa-solid text-[#35c087] text-lg fa-mobile-screen-button"></i>
+                        <p>123456789</p>
+                    </a>
+                    <a href="" class="flex items-center gap-2 ">
+                        <i class="fa-regular text-[#35c087] text-lg fa-envelope"></i>
+                        <p>company@gmail.com</p>
+                    </a>
+                    <a href="" class="flex items-center gap-2 ">
+                        <i class="fa-solid text-[#35c087] text-lg fa-location-dot"></i>
+                        <p>Navy Socity</p>
+                    </a>
+
+                    <p class="py-2 font-medium">Nos réseaux sociaux :</p>
+
+                    <div class="flex items-center gap-3 pb-2">
+
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-facebook text-[32px]"></i>
+                        </div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-instagram text-3xl"></i>
+                        </div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-linkedin text-3xl"></i>
+                        </div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-youtube text-3xl"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bg-[#f6f6f6] w-full md:mt-20 mt-16 p-4">
+        <div class="max-w-7xl w-full mx-auto">
+
+            <div class="md:flex hidden text-sm mt-3 items-center gap-2">
+                <a href="./index.html">
+                    <i class="fa-solid fa-house"></i>
+                </a>
+                -
+                <a href="./index.html" class="hover:underline">Nos banques en ligne</a>
+
+            </div>
+            <h1 class="font-semibold md:text-5xl max-w-[795px] !leading-tight w-full md:text-start text-center pt-24 text-3xl mb-20">
+                Comparer les banques en ligne : Pourquoi et comment faire ?
+
+            </h1>
+
+        </div>
+    </div>
+
+    <div class="flex max-w-7xl mx-auto p-4 justify-between md:flex-row flex-col mainSection items-start">
+        <div class="md:max-w-[68%] w-full">
+            <div class="flex md:flex-row flex-col-reverse gap-6 mt-12 pb-5 md:items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="w-[75px] h-[75px] rounded-full bg-[#dbf6eb] p-4">
+                        <img src="./Docs/Assets/setting.png" class="w-full" alt="">
+                    </div>
+                    <div class="w-[75px] h-[75px] rounded-full bg-[#dbf6eb] p-4">
+                        <img src="./Docs/Assets/bar.png" class="w-full" alt="">
+                    </div>
+                    <div class="w-[75px] h-[75px] rounded-full bg-[#dbf6eb] p-4">
+                        <img src="./Docs/Assets/money.png" class="w-full" alt="">
+                    </div>
+                    <div class="w-[75px] h-[75px] rounded-full bg-[#dbf6eb] p-4">
+                        <img src="./Docs/Assets/time.png" class="w-full" alt="">
+                    </div>
+                </div>
+                <p class="pr-8">Mis en ligne le 1 février 2024
+
+                </p>
+            </div>
+
+            <p class="md:font-medium pt-5 md:text-lg">La digitalisation du secteur financier a favorisé l'avènement de
+                nouvelles banques. Pratiques, avec des conditions d'accès plus souples, elles permettent aux citoyens de
+                bénéficier d'offres plus attractives. Pour ouvrir un compte dans une banque en ligne, certaines
+                formalités sont à effectuer. Plateforme spécialisée dans les finances, Youdge propose un comparatif des
+                meilleures banques en ligne de France.
+            </p>
+
+            <div class="border-b border-zinc-300 md:my-10 my-6"></div>
+            <h2 class="font-semibold md:text-5xl text-2xl !leading-tight md:mt-16 mt-8">L'innovation bancaire au service
+                de l'utilisateur</h2>
+            <p class="pt-5">Nickel est une institution bancaire de renom, alliant tradition et modernité via
+                l’élargissement de son offre vers le numérique. Forte d'une expérience centenaire, sa réputation
+                d'excellence est solidement établie. À ce jour, cette banque met à disposition de ses clients une
+                diversité de services financiers, appuyée par un large réseau d’agences, dont plus de 2200 d’entre elles
+                se trouvent en France. A la clé pour le client ? Un accès étendu et personnalisé à ses solutions
+                bancaires. La richesse de son offre en fait d'elle un acteur incontournable du secteur bancaire, capable
+                de répondre aux besoins financiers variés de sa clientèle. </p>
+
+            <img src="./Docs/Assets/img2.webp" class="w-full rounded-lg md:my-10 my-6" alt="">
+            <div class="border-b border-zinc-300 my-10"></div>
+            <h2 class="font-semibold md:text-5xl text-2xl !leading-tight md:mt-10 mt-6">Focus sur les offres de comptes
+                bancaires BNP
+            </h2>
+            <p class="pt-5">Nickel présente une collection complète de forfaits bancaires sous l'appellation
+                d’"Esprit Libre". Chaque package inclut un compte courant, une carte bancaire, ainsi qu'une sélection
+                d'assurances, complétés par des avantages sans frais supplémentaires tels que les virements instantanés.
+                <br>
+                Les options disponibles sont segmentées par tranches d'âge :
+            </p>
+
+            <ul class="my-7 space-y-1 list-disc pl-5">
+                <li> "Esprit Libre Découverte" pour les adolescents de 16 à 17 ans ;</li>
+                <li> "Esprit Libre Initiative" pour les jeunes adultes de 18 à 24 ans ;</li>
+                <li> "Esprit Libre Référence" pour les clients de 25 ans et plus.</li>
+            </ul>
+
+            <p><b>
+                    Le coût mensuel varie en fonction du type de carte Visa sélectionnée, allant de l'Electron à
+                    l'Infinite,
+                    avec des tarifs allant de 6,46 € à 31,17 €.
+                </b> <br>
+                Cela inclut notamment l'accès à un compte courant équipé pour les paiements mobiles, gérable aisément en
+                ligne ou via l'application mobile de la banque. Les clients bénéficient également de notifications par
+                SMS pour le suivi de leur solde, de deux chèques de banque annuels offerts, ou encore d'une assurance
+                pour les moyens de paiement. Des options supplémentaires peuvent être souscrites.
+
+            </p>
+
+            <h2 class="text-2xl font-semibold mt-10 pb-4">Comment ouvrir un compte Nickel ?</h2>
+            <p>Pour ouvrir un compte chez Nickel :</p>
+
+            <ul class="my-5 space-y-1 list-disc pl-5">
+                <li> Remplissez le formulaire en ligne selon vos besoins ;</li>
+                <li> Fournissez vos informations personnelles et choisissez votre type de compte (individuel ou joint)
+                    et
+                    votre type d’agence (physique ou digitale) ;</li>
+                <li> Utilisez une signature électronique pour sécuriser votre inscription ;</li>
+                <li> Validez votre identité par biométrie ;</li>
+                <li> Effectuez un dépôt initial (50 € à 150 €, 20 € à 150 € pour étudiants) depuis un compte à votre nom
+                </li>
+                <li> Téléchargez vos justificatifs sur une plateforme sécurisée ;</li>
+                <li> Recevez vos identifiants de connexion par courriel.</li>
+
+            </ul>
+            <h2 class="text-2xl font-semibold mt-10 pb-4">Les Cartes Nickel : plus que de simples moyens de
+                paiement
+            </h2>
+            <p>Nickel élève l'expérience bancaire avec une gamme de cartes diversifiée :
+
+            </p>
+
+            <ul class="my-5 space-y-1 list-disc pl-5">
+                <li> Visa Classic (48€/an) : la solution idéale pour les transactions quotidiennes ;</li>
+                <li> Visa Premier (140€/an) : avec des avantages premium comme des assurances voyage ;</li>
+                <li> Visa Infinite (337€/an) : le choix ultime en termes de luxe et de services exclusifs ;</li>
+                <li> Visa Electron (42€/an) : parfaite pour gérer ses dépenses avec contrôle, en évitant les découverts
+                    ;</li>
+                <li> Carte Origin (Gratuite pour les 12-17 ans) : vers l'indépendance financière des jeunes avec une
+                    approche sans frais ;</li>
+                <li> Carte BNP Net (52€/an) : conçue spécifiquement pour les amateurs de shopping en ligne.</li>
+            </ul>
+
+            <img src="./Docs/Assets/cards.webp" class="w-full md:my-10 my-6 max-w-2xl mx-auto" alt="">
+
+            <div class="border-b border-zinc-300 my-10"></div>
+            <h2 class="font-semibold md:text-4xl text-2xl !leading-tight md:mt-10 mt-6">Épargne, assurances et crédit :
+                les solutions complémentaires de BNP
+            </h2>
+            <h2 class="md:text-2xl text-xl font-semibold md:mt-10 mt-5 pb-4">L’épargne chez Nickel
+
+            </h2>
+            <p>Nickel propose une palette variée de solutions d'épargne :</p>
+
+            <ul class="my-5 space-y-1 list-disc pl-5">
+                <li> Livret A : rémunération de 2 % sans imposition, avec un plafond de 22 950 € ;</li>
+                <li> Livret A Baby : destiné aux enfants de moins d'un an, ce livret bénéficie d'un taux de 0,75 % et
+                    partage</li>
+                <li> le même plafond que le Livret A ;</li>
+                <li> Livret Jeune : conçu pour les jeunes de 12 à 25 ans, avec un taux avantageux de 2 % jusqu'à un
+                    plafond de 1 600 € ;</li>
+                <li> Livret d’Épargne Populaire : pour les contribuables modestes avec une rémunération de 1,25 % et un
+                    plafond de 7 700€ ;</li>
+                <li> LDD (Livret de Développement Durable) : avec un taux de 0,50 % pour un plafond de 12 000 € ;</li>
+                <li> Compte Épargne Innovation : pour les étudiants et autoentrepreneurs, sans plafond de dépôt, et
+                    rémunéré à 2,25 % ;</li>
+                <li> PEL (Plan Épargne Logement) : idéal pour ceux projetant un achat immobilier, avec un taux de 1,50 %
+                    et un plafond de 61 200 € ;</li>
+                <li> CEL (Compte Épargne Logement) : axé aussi sur le financement immobilier, avec une rémunération de
+                    0,50 % et un plafond de 15 300 € ;</li>
+                <li> Épargne à Terme : pour bloquer des fonds afin de bénéficier d'un taux d'intérêt croissant sur trois
+                    ans, sans plafond de dépôt.</li>
+            </ul>
+            <h2 class="text-2xl font-semibold mt-10 pb-4">Les assurances Nickel </h2>
+            <p>Nickel s'impose également comme un acteur incontournable sur le marché des assurances, offrant une
+                couverture complète pour sécuriser chaque aspect de la vie de ses clients :
+
+            </p>
+
+            <ul class="my-5 space-y-1 list-disc pl-5">
+                <li> Assurance Habitation ;</li>
+                <li> Assurance Auto ;</li>
+                <li> Prévoyance et Santé ;</li>
+                <li> Assurance pour Appareils Mobiles ;</li>
+                <li> Assurance Accidents de la Vie ;</li>
+                <li> Assurance Scolaire et Étudiant ;</li>
+                <li> Assurance Emprunteur.</li>
+            </ul>
+
+            <img src="./Docs/Assets/img3.webp" class="my-10 w-full max-h-[22rem] rounded-lg object-cover" alt="">
+
+            <h2 class="text-2xl font-semibold mt-10 pb-4">L’assurance-vie chez Nickel
+            </h2>
+            <p>L'offre d'assurance vie chez Nickel se distingue par trois contrats principaux : Multiplacements,
+                Multiplacements 2, et Multiplacements Avenir. Ces derniers ont l’avantage d’avoir affiché des
+                performances notables ces dernières années, avec des taux de rendement allant de 1,70 % à 1,90 % et des
+                frais de gestion situés entre 0,3 % et 0,7 %. Attention toutefois : les performances passées ne
+                garantissent en rien les gains futurs.
+                <br><br>
+                Nickel offre la flexibilité de choisir entre une gestion profilée, une gestion libre ou une gestion
+                sous mandat. De plus, la banque met en avant des promotions attrayantes sur les droits d’entrée,
+                renforçant l'attrait de ses solutions d'assurance vie.
+            </p>
+            <h2 class="text-2xl font-semibold mt-10 pb-4">La bourse chez Nickel
+            </h2>
+            <p>Nickel enrichit l'accès à l'investissement boursier avec trois comptes distincts :
+            </p>
+
+            <ul class="my-5 space-y-1 list-disc pl-5">
+                <li> Compte d’Instruments Financiers (CIF) : accès illimité aux titres financiers disponibles sur le
+                    marché, sans restrictions de plafond ou de durée ;</li>
+                <li> Plan d’Épargne en Actions (PEA) : destiné aux investissements dans des actifs de grandes
+                    entreprises françaises ou européennes, et bénéficiant d'un régime fiscal favorable avec un plafond
+                    de 150 000 € ;</li>
+                <li> Plan d’Épargne en Actions PME-ETI : pour investir dans le potentiel de croissance des PME et ETI
+                    françaises ou européennes, avec un plafond de 225 000 €.</li>
+            </ul>
+            <p>Nickel offre une gamme complète de solutions de prêts, conçues pour s'adapter à divers besoins de
+                financement, que ce soit pour des projets personnels ou professionnels. En matière de prêts immobiliers,
+                Nickel se distingue par des offres personnalisées avec des taux d'intérêt ajustés et une gestion en
+                ligne de l'ensemble du processus, de la demande à la signature. Les clients bénéficient également de
+                réductions significatives sur les frais de dossier.
+
+            </p>
+            <div class="border-b border-zinc-300 md:my-10 my-6"></div>
+            <h2 class="font-semibold md:text-4xl text-2xl !leading-tight md:mt-10 mt-6 pb-4">L'Application mobile BNP
+            </h2>
+
+            <p>L'application mobile "Mes Comptes" de Nickel révolutionne la gestion bancaire quotidienne, en vous
+                offrant une plateforme intuitive et personnalisable. Disponible sur les appareils iOS et Android, tels
+                que les montres connectées, cette application permet un accès instantané à vos comptes, une
+                visualisation des soldes en temps réel et même l’apparition des transactions récentes sans nécessité de
+                vous connecter. <br>
+                Les utilisateurs peuvent aussi personnaliser leur écran d'accueil avec des widgets, gérer leurs plafonds
+                de paiement et de retrait, et même sécuriser leurs moyens de paiement en cas d'urgence. <br>
+                Enfin, notez aussi que cette appli supporte des solutions de paiement mobiles comme Apple Pay, Lyf Pay,
+                et Paylib, pour une expérience d'achat plus fluide et sécurisée.
+            </p>
+
+            <img src="./Docs/Assets/img4.webp" class="md:my-10 my-6 w-full max-h-[22rem] rounded-lg object-cover"
+                alt="">
+
+            <h2 class="font-semibold md:text-4xl text-2xl !leading-tight md:mt-10 mt-6 pb-3">Décryptage des frais BNP
+            </h2>
+            <p>Nickel applique une structure de frais transparente pour ses services bancaires. L’enjeu ? Garantir
+                plus de clarté à ses clients :</p>
+
+            <ul class="my-5 space-y-1 list-disc pl-5">
+                <li> Frais de tenue de compte : 31,20€/an (2,60€/mois)</li>
+                <li> Abonnement internet : gratuit</li>
+                <li> Alertes SMS : 24€/an</li>
+                <li> Virement SEPA occasionnel : gratuit en ligne / 3,5€ en agence</li>
+                <li> Virement SEPA permanent : gratuit en ligne / 1,50€ par virement en agence</li>
+                <li> Prélèvement SEPA : gratuit</li>
+                <li> Émission d'un chèque de banque : 9,90€</li>
+                <li> Envoi d'un chéquier : coûts postaux pour envoi non recommandé / 5€ + frais postaux pour envoi
+                    recommandé</li>
+                <li> Frais d'opposition d'un chèque : gratuit en ligne / 16€ en agence</li>
+                <li> Retraits DAB d'une autre banque : 1€ à partir du 4ème retrait par mois en France</li>
+                <li> Retraits hors UE : 2,90% de l'opération + 3€</li>
+                <li> Paiements hors UE : 2,90% de l'opération + 0,90€</li>
+                <li> Frais d'opposition sur CB : gratuit</li>
+            </ul>
+
+            <p>Ces frais mettent en évidence l'engagement de Nickel à offrir des options gratuites ou à coût réduit
+                pour les opérations courantes effectuées en ligne, tout en maintenant certains frais pour les services
+                en agence ou internationaux.
+            </p>
+
+            <h2 class="text-2xl font-semibold md:mt-10 mt-6 pb-4">Nickel : que se passe-t-il en cas d’incident ?</h2>
+            <p>En cas d'incident financier chez Nickel, des frais spécifiques sont appliqués pour gérer les
+                situations délicates. Les commissions d'intervention sont fixées à 8€ par opération, avec un plafond
+                mensuel de 80€. Pour les chèques rejetés, les frais varient : 30€ pour un montant inférieur ou égal à
+                50€ et 50€ au-delà. Les notifications pour comptes débiteurs non autorisés ou avant un rejet coûtent
+                20€. Un compte inactif entraîne des frais annuels de 30€. Les taux pour découverts autorisés et non
+                autorisés sont respectivement de 15,90% et 18,40%. </p>
+            <h2 class="text-2xl font-semibold md:mt-10 mt-6 pb-4">Un service client réactif
+            </h2>
+            <p>Nickel se distingue surtout par un service client très réactif, accessible auprès de ses 2000
+                agences en France et via ses canaux numériques. <br>
+                Les clients peuvent bénéficier d'un échange direct avec des conseillers dédiés, par téléphone, email, ou
+                chat, tout en obtenant en parallèle des conseils en agence.
+                <br><br>
+                Disponible du lundi au vendredi de 8h à 22h et le samedi de 8h à 18h, le service client offre une
+                assistance continue, complétée par Telmi, l'assistant virtuel 24/7, directement sur le site de la
+                banque. <br>
+                Pour des besoins spécifiques, des experts en produits financiers sont prêts à vous aider.
+                <br><br>
+                Enfin, Nickel facilite aussi la communication en LSF (Langue des Signes Française), en LPC (Langage
+                Parlé Complété) ou en TIP (Transcription Instantanée de la Parole), et reste active sur les réseaux
+                sociaux pour répondre aux interrogations de toute sa clientèle.
+
+            </p>
+
+            <img src="./Docs/Assets/img5.webp" class="md:my-10 my-6 w-full max-h-[22rem] rounded-lg object-cover"
+                alt="">
+
+        </div>
+        <div class="md:max-w-[30%] mt-20 md:block hidden  bgBank2 rounded-3xl  p-4 w-full">
+            <div class="right">
+
+                <div class="bg-[#e9fff6] p-6 rounded-2xl flex items-center justify-center gap-7">
+                    <p class="text-lg">Ue compare parmi <span class="block font-bold text-[#35c087]">les meilleures
+                            banques</span></p>
+                    <i class="fa-solid fa-arrow-right text-xl"></i>
+                </div>
+
+                <div class="bg-[#f6f6f6] p-6 rounded-2xl mt-4">
+                    <h2 class="text-xl font-semibold">les meilleures banques en ligne
+                    </h2>
+
+                    <div class="grid mt-5 grid-cols-2 gap-4">
+
+                        <a href="./Banks/BNP-Paribas.html" class="w-full myShadow bg-white rounded-xl p-4 min-h-[8rem] flex items-center justify-center">
+                            <img src="./Docs/Assets/bnp.png" class="w-full" alt="">
+                        </a>
+                        <a href="./Banks/Fontuneo.html" class="w-full myShadow bg-white rounded-xl p-4 min-h-[8rem] flex items-center justify-center">
+                            <img src="./Docs/Assets/fortuneo.png" class="w-full" alt="">
+                        </a>
+                        <a href="./Banks/Hello-bank.html" class="w-full myShadow bg-white rounded-xl p-4 min-h-[8rem] flex items-center justify-center">
+                            <img src="./Docs/Assets/helloBank.png" class="w-full" alt="">
+                        </a>
+                        <a href="./Banks/Société-génénale.html" class="w-full myShadow bg-white rounded-xl p-4 min-h-[8rem] flex items-center justify-center">
+                            <img src="./Docs/Assets/sg.png" class="w-full scale-110" alt="">
+                        </a>
+                        <a href="./Banks/BounsoBank.html" class="w-full myShadow bg-white rounded-xl p-4 min-h-[8rem] flex items-center justify-center">
+                            <img src="./Docs/Assets/bousro.png" class="w-full" alt="">
+                        </a>
+                        <a href="./Banks/N26.html" class="w-full myShadow bg-white rounded-xl p-4 min-h-[8rem] flex items-center justify-center">
+                            <img src="./Docs/Assets/n26.png" class="w-full" alt="">
+                        </a>
+                        <a href="./Banks/Nickel.html" class="w-full myShadow bg-white rounded-xl p-4 min-h-[8rem] flex items-center justify-center">
+                            <img src="./Docs/Assets/nickel.png" class="w-full" alt="">
+                        </a>
+                      
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="bg-[#292929] w-full md:mt-16 mt-10 p-5 md:pt-16 pt-8">
+
+        <div class="max-w-7xl w-full mx-auto">
+
+            <div class="grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-5 gap-8">
+                <div class="">
+                    <h2 class="text-white text-xl font-medium">Besoin d'aide ?</h2>
+                    <a href="" class="flex items-center gap-2 mt-2 text-white">
+                        <i class="fa-solid fa-phone text-white text-lg"></i>
+                        01 45 61 99 54
+                    </a>
+                    <p class="mt-5 text-white">Du lundi au vendredi
+                        <br> de 10h à 18h
+                        <br> Prix d'un appel local
+                    </p>
+                </div>
+                <div class="">
+                    <h2 class="text-white text-xl font-medium">Les banques en ligne</h2>
+                    <ul class="mt-6 space-y-2">
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="./Banks/BNP-Paribas.html"> BNP
+                                Paribas</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="./Banks/Hello-bank.html"> Hello
+                                bank</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="./Banks/Nickel.html"> Fortuneo</a>
+                        </li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="./Banks/BounsoBank.html">
+                                BounsoBank</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="./Banks/Société-génénale.html"> Société
+                                générale</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="./Banks/N26.html"> N26</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="./Banks/Nickel.html"> Nickel</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="">
+                    <h2 class="text-white text-xl lg:block hidden font-medium">&nbsp; </h2>
+                    <ul class="md:mt-6 mt-2 space-y-2">
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]" href="./index.html">
+                                Nos banques
+                                en
+                                ligne</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="./Ouvrir-un-compte.html"> Ouvrir un
+                                compte</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="./Comparer-les-offnes.html"> Comparer les
+                                offres</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="./Épargne.html"> Épargne</a>
+                        </li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="./A-propos.html"> A propos</a>
+                        </li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="./Questions-fréquentes.html"> Questions
+                                fréquentes</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="flex md:items-center justify-between lg:flex-row flex-col-reverse md:gap-5 gap-8 md:pt-16 pt-14">
+
+                <ul class="flex md:gap-4 gap-2 lg:flex-row flex-col">
+                    <li><a href="./Mentions-légales.html"
+                            class="text-white transition-all duration-500 hover:text-[#69d7b3]"> Mentions
+                            légales</a></li>
+                    <li><a href="./Politique-de-Protection-de-la-Vie-Privée.html"
+                            class="text-white transition-all duration-500 hover:text-[#69d7b3]"> Politique de
+                            protection vie privée</a></li>
+                    <li><a href="./Conditions-générales-d'utilisation.html"
+                            class="text-white transition-all duration-500 hover:text-[#69d7b3]"> Conditions
+                            générales d'utilisation</a></li>
+                </ul>
+                <a href="./index.html">
+                    <img src="./Docs/Assets/logo.png" class="h-10" alt="">
+                </a>
+
+            </div>
+
+            <div class="lg:hidden flex mt-6 items-center gap-3">
+
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-facebook text-[32px]"></i>
+                </div>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-instagram text-3xl"></i>
+                </div>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-linkedin text-3xl"></i>
+                </div>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-youtube text-3xl"></i>
+                </div>
+
+            </div>
+
+            <div class="border-b border-white my-8"></div>
+
+
+            <div class="flex items-center justify-between xl:flex-row flex-col gap-5 ">
+                <p class="text-white">© Copyright 2024 - Youdge SAS, 14 Place Marie-Jeanne Bassot, 92300
+                    Levallois-Perret - Tous droits réservés.</p>
+                <div class="lg:flex hidden  items-center gap-3 pb-2">
+
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-facebook text-[32px]"></i>
+                    </div>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-instagram text-3xl"></i>
+                    </div>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-linkedin text-3xl"></i>
+                    </div>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-youtube text-3xl"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./Docs/Javascripts/global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./Docs/Javascripts/global.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        ScrollTrigger.create({
+            trigger: ".mainSection",
+            start: "top top",
+            end: "bottom bottom",
+            pin: ".right",
+        });
+    </script>
+</body>
+
+</html>
