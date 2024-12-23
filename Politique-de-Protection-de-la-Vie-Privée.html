@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUIDEBANCAIRE</title>
+    <link rel="shortcut icon" href="../Docs/Assets/favIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../Docs/Styles/global.css">
+    <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+
+    <div class="fixed z-50 top-0 left-0 w-full shadow-md bg-white">
+        <div class="flex items-center justify-between max-w-7xl w-full mx-auto p-5">
+            <a href="../index.html">
+                <img src="../Docs/Assets/logo.png" class="md:h-12 h-8" alt="">
+            </a>
+            <ul class="hidden items-center justify-center gap-8 lg:flex ">
+                <li class="flex group cursor-pointer items-center gap-2 relative"> Nos banques en ligne <i
+                        class="fa-solid fa-caret-down group-hover:rotate-180 transition-all duration-300"></i>
+                    <div class="absolute fadeIn group-hover:block  pt-5 top-5 left-0 hidden">
+                        <div
+                            class="text-[#1d1d1d] overflow-hidden border border-[#1d1d1d] w-full rounded-lg bg-white z-40">
+                            <ul>
+                                <li><a href="../Banks/BNP-Paribas.html"
+                                        class="px-5 py-2 pt-5   hover:text-[#35c087] transition-all duration-500 block">
+                                        BNP
+                                        Paribas</a></li>
+                                <li><a href="../Banks/Hello-bank.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        Hello bank</a></li>
+                                <li><a href="../Banks/Fontuneo.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        Fortuneo</a></li>
+                                <li><a href="../Banks/BounsoBank.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        BounsoBank</a></li>
+                                <li><a href="../Banks/Société-génénale.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        Société génénale</a></li>
+                                <li><a href="../Banks/N26.html"
+                                        class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                        N26</a></li>
+                                <li><a href="../Banks/Nickel.html"
+                                        class="px-5  hover:text-[#35c087] transition-all duration-500 py-2 pb-5 block">
+                                        Nickel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li> <a href="../Ouvrir-un-compte.html" class="hover:text-[#35c087] transition-all duration-500"> Ouvrir
+                        un compte</a></li>
+                <li> <a href="../Comparer-les-offnes.html" class="hover:text-[#35c087] transition-all duration-500">
+                        Comparer les offres</a></li>
+                <li> <a href="../Épargne.html" class="hover:text-[#35c087] transition-all duration-500"> Épargne</a>
+                </li>
+                <li> <a href="../A-propos.html" class="hover:text-[#35c087] transition-all duration-500"> À propos</a>
+                </li>
+            </ul>
+            <i class="fa-solid fa-bars text-2xl text-[#1d1d1d] cursor-pointer lg:hidden" id="openNav"></i>
+        </div>
+    </div>
+
+    <div style="width: 0;" id="resNav"
+        class="fixed transition-all duration-500 overflow-hidden h-screen top-0 left-0 bg-white z-50">
+        <div class="">
+            <div class="flex p-5 items-center justify-between">
+                <a href="../index.html">
+                    <img src="../Docs/Assets/logo.png" class="h-9" alt="">
+                </a>
+                <i id="closeNav" class="fa-solid fa-x text-xl"></i>
+            </div>
+
+            <div class="mt-8 text-nowrap px-5 w-full flex flex-col gap-10 justify-between h-[80vh] overflow-auto">
+                <ul class="  flex-col gap-8 flex ">
+                    <li class="bg-white " x-data="accordion(1)">
+                        <h2 @click="handleClick()"
+                            class="flex flex-row justify-between items-center font-medium  cursor-pointer">
+                            <span>Nos banques en ligne
+                            </span>
+                            <i :class="handleRotate()" class="fa-solid fa-angle-down transition-all duration-500"></i>
+                        </h2>
+                        <div x-ref="tab" :style="handleToggle()"
+                            class="overflow-hidden max-h-0 duration-500 transition-all">
+                            <div
+                                class="text-[#1d1d1d] overflow-hidden border border-[#1d1d1d] w-full rounded-lg bg-white mt-5">
+                                <ul>
+                                    <li><a href="../Banks/BNP-Paribas.html"
+                                            class="px-5 py-2 pt-5   hover:text-[#35c087] transition-all duration-500 block">
+                                            BNP
+                                            Paribas</a></li>
+                                    <li><a href="../Banks/Hello-bank.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            Hello bank</a></li>
+                                    <li><a href="../Banks/Fontuneo.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            Fortuneo</a></li>
+                                    <li><a href="../Banks/BounsoBank.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            BounsoBank</a></li>
+                                    <li><a href="../Banks/Société-génénale.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            Société génénale</a></li>
+                                    <li><a href="../Banks/N26.html"
+                                            class="px-5 py-2 block  hover:text-[#35c087] transition-all duration-500 ">
+                                            N26</a></li>
+                                    <li><a href="../Banks/Nickel.html"
+                                            class="px-5  hover:text-[#35c087] transition-all duration-500 py-2 pb-5 block">
+                                            Nickel</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li> <a href="../Ouvrir-un-compte.html" class="hover:text-[#35c087] transition-all duration-500">
+                            Ouvrir un compte</a>
+                    </li>
+                    <li> <a href="../Comparer-les-offnes.html" class="hover:text-[#35c087] transition-all duration-500">
+                            Comparer les
+                            offres</a>
+                    </li>
+                    <li> <a href="../Épargne.html" class="hover:text-[#35c087] transition-all duration-500"> Épargne</a>
+                    </li>
+                    <li> <a href="../A-propos.html" class="hover:text-[#35c087] transition-all duration-500"> À
+                            propos</a></li>
+                </ul>
+
+                <div class=" space-y-2">
+                    <a href="" class="flex items-center gap-2 ">
+                        <i class="fa-solid text-[#35c087] text-lg fa-mobile-screen-button"></i>
+                        <p>123456789</p>
+                    </a>
+                    <a href="" class="flex items-center gap-2 ">
+                        <i class="fa-regular text-[#35c087] text-lg fa-envelope"></i>
+                        <p>company@gmail.com</p>
+                    </a>
+                    <a href="" class="flex items-center gap-2 ">
+                        <i class="fa-solid text-[#35c087] text-lg fa-location-dot"></i>
+                        <p>Navy Socity</p>
+                    </a>
+
+                    <p class="py-2 font-medium">Nos réseaux sociaux :</p>
+
+                    <div class="flex items-center gap-3 pb-2">
+
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-facebook text-[32px]"></i>
+                        </div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-instagram text-3xl"></i>
+                        </div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-linkedin text-3xl"></i>
+                        </div>
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full border-black border-2">
+                            <i class="fa-brands fa-youtube text-3xl"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bg-[#f6f6f6] w-full md:mt-20 mt-16 p-4">
+        <div class="max-w-7xl w-full mx-auto">
+
+            <div class="md:flex hidden text-sm mt-3 items-center gap-2">
+                <a href="./index.html">
+                    <i class="fa-solid fa-house"></i>
+                </a>
+                -
+                <a href="./Politique-de-Protection-de-la-Vie-Privée.html" class="hover:underline">Politique de
+                    Protection de la Vie Privée
+                </a>
+            </div>
+
+            <h1
+                class="font-semibold md:text-6xl !leading-tight max-w-3xl pt-20 md:text-start text-center text-[2.7rem] mb-20">
+                Politique de Protection de la Vie Privée
+            </h1>
+
+
+
+        </div>
+    </div>
+
+
+
+
+    <div class="max-w-7xl mx-auto p-4 md:mt-12 mt-5">
+        <p class="">
+            YOUDGE est attaché à la protection de votre vie privée et des données à caractère personnel qui vous
+            concernent (les « Données ») en tant qu’utilisateur du Site. Ainsi, YOUDGE est engagé dans une démarche
+            d’adaptation permanente et de protection de vos Données.
+            <br><br>
+            YOUDGE est engagé dans le respect du Règlement Général sur la Protection des Données 2016/679 du 27 avril
+            2016 (« RGPD ») et de la Loi n° 78-17 du 6 janvier 1978 relative à l’Informatique, aux fichiers et aux
+            libertés (« Informatique et Libertés ») (ensemble la « Réglementation en matière de protection des données
+            »).
+            <br><br>
+            En mettant à votre disposition la présente Politique, nous avons souhaité être transparents sur le
+            traitement de vos données et notre respect de la Réglementation en vigueur. Vous trouverez ici l’ensemble
+            des informations nécessaires pour comprendre comment YOUDGE collecte, traite et protège vos Données dans le
+            cadre de l’utilisation du Site.
+
+
+        </p>
+        <div class="border-b border-zinc-300 md:my-10 my-5 w-full"></div>
+        <h2 class="font-semibold md:text-4xl !leading-tight text-2xl md:pt-7 pt-3 md:pb-5 pb-3">1. Nous avons désigné un Délégué à la
+            Protection des Données
+        </h2>
+        <p class="text-zinc-700">Dans le cadre de notre engagement en faveur de la protection de vos données à caractère
+            personnel, nous avons désigné Maître COHEN-HADRIA, qui a développé une expertise en matière de nouvelles
+            technologies et de protection des données à caractère personnel, en tant que Délégué à la Protection des
+            Données (ou « DPO »).
+            <br><br>
+            Maître COHEN-HADRIA, met à profit son expertise afin de nous assister dans l’adaptation permanente de nos
+            procédures à la nécessaire protection de votre vie privée. Ainsi, pour toute question relative à la
+            protection de vos données à caractère personnel, vous pouvez contacter notre DPO par email à l’adresse
+            suivante : mesdonnees@youdge.com
+        </p>
+        <div class="border-b border-zinc-300 md:my-10 my-5 w-full"></div>
+        <h2 class="font-semibold md:text-4xl !leading-tight text-2xl md:pt-7 pt-4 md:pb-5 pb-3">2. Nous utilisons vos Données
+            uniquement pour vous fournir nos services
+        </h2>
+        <p class="text-zinc-700">Dans le cadre de notre engagement en faveur de la protection de vos données à caractère
+            personnel, nous avons désigné Maître COHEN-HADRIA, qui a développé une expertise en matière de nouvelles
+            technologies et de protection des données à caractère personnel, en tant que Délégué à la Protection des
+            Données (ou « DPO »).
+            <br><br>
+            Maître COHEN-HADRIA, met à profit son expertise afin de nous assister dans l’adaptation permanente de nos
+            procédures à la nécessaire protection de votre vie privée. Ainsi, pour toute question relative à la
+            protection de vos données à caractère personnel, vous pouvez contacter notre DPO par email à l’adresse
+            suivante : mesdonnees@youdge.com
+        </p>
+        <div class="border-b border-zinc-300 md:my-10 my-5 w-full"></div>
+        <h2 class="font-semibold md:text-4xl !leading-tight text-2xl md:pt-7 pt-4 md:pb-5 pb-3">3. Nous ne collectons que les Données
+            dont nous avons strictement besoin
+        </h2>
+        <p class="text-zinc-700">Afin de vous envoyer nos emails d’offres de crédits, nous collectons : vos nom et
+            prénom, et votre adresse email.
+            <br><br>
+            Afin de vous proposer les simulations de crédits de nos partenaires, nous ne collectons que les Données
+            nécessaires à l’étude de votre dossier. La collecte de vos Données se limite aux seules informations à
+            remplir dans nos formulaires de demande de simulation de crédits.
+
+
+        </p>
+        <div class="border-b border-zinc-300 md:my-10 my-5 w-full"></div>
+        <h2 class="font-semibold md:text-4xl !leading-tight text-2xl md:pt-7 pt-4 md:pb-5 pb-3">4. Nous ne traitons vos données à
+            caractère personnel qu’après avoir recueilli votre consentement préalable et spécifique
+        </h2>
+        <p class="text-zinc-700">Vous pouvez, à tout moment, retirer votre consentement. Le retrait de votre
+            consentement ne compromet pas la licéité du traitement d’ores et déjà effectué à partir de vos données. Mais
+            nous ne traiterons plus ces données pour l’avenir.
+            <br><br>
+            Vous pouvez vous opposer à la réception de nos emails en cliquant sur le lien qui permet le désabonnement en
+            bas de chaque email ou en envoyant un message en ce sens clair et non ambigu à l’adresse suivante :
+            mesdonnees@youdge.com
+        </p>
+        <div class="border-b border-zinc-300 md:my-10 my-5 w-full"></div>
+        <h2 class="font-semibold md:text-4xl !leading-tight text-2xl md:pt-7 pt-4 md:pb-5 pb-3">5. Nous partageons vos données avec un
+            nombre limité de partenaires uniquement dans le cadre de nos services
+        </h2>
+        <p class="text-zinc-700">Afin de vous transmettre le résultat de vos demandes de simulations, nous transmettons
+            nécessairement vos Données à nos partenaires organismes de crédit pour que vos demandes soient traitées,
+            lorsque vous y avez consenti. Nos partenaires agissent alors en qualité de responsable de traitement,
+            indépendamment de YOUDGE, et traitent vos Données pour des finalités qui leur sont propres, et qui varient
+            selon l’acceptation ou non de votre demande de crédit.
+<br><br>
+            Vos Données peuvent également être transmises à nos prestataires techniques, dans le cadre de la maintenance
+            de notre site internet.
+        </p>
+
+    </div>
+
+
+
+
+    <footer class="bg-[#292929] w-full md:mt-16 mt-10 p-5 md:pt-16 pt-8">
+
+        <div class="max-w-7xl w-full mx-auto">
+
+            <div class="grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-5 gap-8">
+                <div class="">
+                    <h2 class="text-white text-xl font-medium">Besoin d'aide ?</h2>
+                    <a href="" class="flex items-center gap-2 mt-2 text-white">
+                        <i class="fa-solid fa-phone text-white text-lg"></i>
+                        01 45 61 99 54
+                    </a>
+                    <p class="mt-5 text-white">Du lundi au vendredi
+                        <br> de 10h à 18h
+                        <br> Prix d'un appel local
+                    </p>
+                </div>
+                <div class="">
+                    <h2 class="text-white text-xl font-medium">Les banques en ligne</h2>
+                    <ul class="mt-6 space-y-2">
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/BNP-Paribas.html"> BNP
+                                Paribas</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/Hello-bank.html"> Hello
+                                bank</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/Fontuneo.html"> Fortuneo</a>
+                        </li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/BounsoBank.html">
+                                BounsoBank</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/Société-génénale.html"> Société
+                                générale</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/N26.html"> N26</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Banks/Nickel.html"> Nickel</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="">
+                    <h2 class="text-white text-xl lg:block hidden font-medium">&nbsp; </h2>
+                    <ul class="md:mt-6 mt-2 space-y-2">
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]" href="../index.html">
+                                Nos banques
+                                en
+                                ligne</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Ouvrir-un-compte.html"> Ouvrir un
+                                compte</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Comparer-les-offnes.html"> Comparer les
+                                offres</a></li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Épargne.html"> Épargne</a>
+                        </li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../A-propos.html"> A propos</a>
+                        </li>
+                        <li><a class="text-white transition-all duration-500 hover:text-[#69d7b3]"
+                                href="../Questions-fréquentes.html"> Questions
+                                fréquentes</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="flex md:items-center justify-between lg:flex-row flex-col-reverse md:gap-5 gap-8 md:pt-16 pt-14">
+
+                <ul class="flex md:gap-4 gap-2 lg:flex-row flex-col">
+                    <li><a href="../Mentions-légales.html"
+                            class="text-white transition-all duration-500 hover:text-[#69d7b3]"> Mentions
+                            légales</a></li>
+                    <li><a href="../Politique-de-Protection-de-la-Vie-Privée.html"
+                            class="text-white transition-all duration-500 hover:text-[#69d7b3]"> Politique de
+                            protection vie privée</a></li>
+                    <li><a href="../Conditions-générales-d'utilisation.html"
+                            class="text-white transition-all duration-500 hover:text-[#69d7b3]"> Conditions
+                            générales d'utilisation</a></li>
+                </ul>
+                <a href="../index.html">
+                    <img src="../Docs/Assets/logo.png" class="h-10" alt="">
+                </a>
+
+            </div>
+
+            <div class="lg:hidden flex mt-6 items-center gap-3">
+
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-facebook text-[32px]"></i>
+                </div>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-instagram text-3xl"></i>
+                </div>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-linkedin text-3xl"></i>
+                </div>
+                <div
+                    class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                    <i
+                        class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-youtube text-3xl"></i>
+                </div>
+
+            </div>
+
+            <div class="border-b border-white my-8"></div>
+
+
+            <div class="flex items-center justify-between xl:flex-row flex-col gap-5 ">
+                <p class="text-white">© Copyright 2024 - Youdge SAS, 14 Place Marie-Jeanne Bassot, 92300
+                    Levallois-Perret - Tous droits réservés.</p>
+                <div class="lg:flex hidden  items-center gap-3 pb-2">
+
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-facebook text-[32px]"></i>
+                    </div>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-instagram text-3xl"></i>
+                    </div>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-linkedin text-3xl"></i>
+                    </div>
+                    <div
+                        class="flex items-center justify-center w-12 h-12 rounded-full border-white hover:border-[#69d7b3] cursor-pointer group transition-all duration-500  border-2">
+                        <i
+                            class="fa-brands text-white transition-all duration-500 group-hover:text-[#69d7b3] fa-youtube text-3xl"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="../Docs/Javascripts/global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
